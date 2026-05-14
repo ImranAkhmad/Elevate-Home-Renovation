@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Home Renovation - Transform Your Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a2744;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: #1a2744;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #d4af37;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+        
+        .menu-btn {
+            color: #d4af37;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .phone-btn {
+            background: #d4af37;
+            color: #1a2744;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        /* Location Bar */
+        .location-bar {
+            background: #d4af37;
+            color: #1a2744;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-icon {
+            font-size: 80px;
+        }
+        
+        .hero-title {
+            font-size: 52px;
+            font-weight: 800;
+            color: #d4af37;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .hero-subtitle {
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .hero-desc {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .service-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .service-tag {
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #1a2744 0%, #0f1a2e 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+            font-size: 15px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 39, 68, 0.95));
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h3 {
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+        }
+        
+        /* Before/After Section */
+        .before-after-section {
+            padding: 60px 20px;
+            background: #1a2744;
+        }
+        
+        .ba-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .ba-card {
+            background: #0f1a2e;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .ba-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .ba-labels {
+            display: flex;
+            padding: 15px 20px;
+            gap: 20px;
+        }
+        
+        .ba-label {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .ba-label.before {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        
+        .ba-label.after {
+            background: #d4af37;
+            color: #1a2744;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #0f1a2e 0%, #1a2744 100%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+        
+        .service-card i {
+            font-size: 40px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .service-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a2744 0%, #0f1a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        
+        .cta-desc {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-btn {
+            background: #d4af37;
+            color: #1a2744;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0f1a2e;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-contact a:hover {
+            color: #d4af37;
+        }
+        
+        .footer-contact i {
+            color: #d4af37;
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            
+            .hero-icon {
+                font-size: 60px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ba-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-tags {
+                gap: 10px;
+            }
+            
+            .service-tag {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+            
+            .phone-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-section">
+            <div class="logo-icon">🏠</div>
+            <div class="logo-text">ELEVATE</div>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+        <a href="tel:0830896669" class="phone-btn">
+            <i class="fas fa-phone"></i>
+            083 089 6669
+        </a>
+    </header>
+    
+    <!-- Location Bar -->
+    <div class="location-bar">
+        🌍 Serving Cork City, Surrounding Areas & Nearby Villages
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-icons animate">
+            <div class="hero-icon">🏠</div>
+            <div class="hero-icon">🔨</div>
+        </div>
+        <h1 class="hero-title animate delay-1">ELEVATE</h1>
+        <h2 class="hero-subtitle animate delay-2">HOME RENOVATION</h2>
+        <p class="hero-desc animate delay-3">
+            Transform your home with our expert renovation services. Quality craftsmanship, on-time completion, and affordable pricing.
+        </p>
+        <div class="service-tags animate delay-4">
+            <span class="service-tag">Build</span>
+            <span class="service-tag">Renovate</span>
+            <span class="service-tag">Garden</span>
+            <span class="service-tag">Decor</span>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="section-title">Our Projects</h2>
+        <p class="section-subtitle">Real transformations, real results</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox('https://kimi-web-img.moonshot.cn/img/theconstructiontime.com/e9e5d625e4425a5d0dc6d1928335ddb8c9f0b27f.jpg')">
+                <img src="https://kimi-web-img.moonshot.cn/img/theconstructiontime.com/e9e5d625e4425a5d0dc6d1928335ddb8c9f0b27f.jpg" alt="Quality Renovation Work">
+                <div class="gallery-overlay">
+                    <h3>Quality Craftsmanship</h3>
+                    <p>Professional renovation with attention to every detail</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox('https://kimi-web-img.moonshot.cn/img/hips.hearstapps.com/659ae23c36f4c30ed27379e3d0a2e6cb1ca82be6.jpg')">
+                <img src="https://kimi-web-img.moonshot.cn/img/hips.hearstapps.com/659ae23c36f4c30ed27379e3d0a2e6cb1ca82be6.jpg" alt="Modern House Design">
+                <div class="gallery-overlay">
+                    <h3>Modern Design</h3>
+                    <p>Contemporary home renovation with stunning results</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox('https://kimi-web-img.moonshot.cn/img/www.rubi.com/e69d0771efa7f67666dc18b0c36ae8617d4d16d9.jpg')">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.rubi.com/e69d0771efa7f67666dc18b0c36ae8617d4d16d9.jpg" alt="Exterior Renovation">
+                <div class="gallery-overlay">
+                    <h3>Exterior Upgrade</h3>
+                    <p>Complete exterior transformation for modern appeal</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox('https://kimi-web-img.moonshot.cn/img/st.hzcdn.com/c1cab11a5f54800c7db76a29b0d791f0bfde13f2.jpg')">
+                <img src="https://kimi-web-img.moonshot.cn/img/st.hzcdn.com/c1cab11a5f54800c7db76a29b0d791f0bfde13f2.jpg" alt="Modern Exterior">
+                <div class="gallery-overlay">
+                    <h3>Curb Appeal</h3>
+                    <p>Stunning exterior renovations that impress</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox('https://kimi-web-img.moonshot.cn/img/desalitysnagging.com/974a643314f271037629671e90695f19981a40fc.jpg')">
+                <img src="https://kimi-web-img.moonshot.cn/img/desalitysnagging.com/974a643314f271037629671e90695f19981a40fc.jpg" alt="Renovation Inspection">
+                <div class="gallery-overlay">
+                    <h3>Quality Inspection</h3>
+                    <p>Ensuring the highest standards in every project</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox('https://kimi-web-img.moonshot.cn/img/renovationmasterswi.com/c770be17a85680cf5ef1c499093ce47d9b906c11.jpg')">
+                <img src="https://kimi-web-img.moonshot.cn/img/renovationmasterswi.com/c770be17a85680cf5ef1c499093ce47d9b906c11.jpg" alt="Construction Work">
+                <div class="gallery-overlay">
+                    <h3>Expert Construction</h3>
+                    <p>Skilled professionals delivering excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Before & After Section -->
+    <section class="before-after-section">
+        <h2 class="section-title">Before & After</h2>
+        <p class="section-subtitle">See the dramatic transformations we deliver</p>
+        
+        <div class="ba-grid">
+            <div class="ba-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/kowalske.com/6d20a2180e163b851fe6fd9be563f9e1907011fa.jpg" alt="Bathroom Before After">
+                <div class="ba-labels">
+                    <div class="ba-label before">BEFORE</div>
+                    <div class="ba-label after">AFTER</div>
+                </div>
+            </div>
+            
+            <div class="ba-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.contemporist.com/d6364275a705545bf15c19e4de2cbe7aa0f49a93.jpg" alt="Kitchen Before After">
+                <div class="ba-labels">
+                    <div class="ba-label before">BEFORE</div>
+                    <div class="ba-label after">AFTER</div>
+                </div>
+            </div>
+            
+            <div class="ba-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/ballroombaths.com/cfa311fdbe63677967c274cc8bbc339b6373d251.jpg" alt="Bathroom Renovation">
+                <div class="ba-labels">
+                    <div class="ba-label before">BEFORE</div>
+                    <div class="ba-label after">AFTER</div>
+                </div>
+            </div>
+            
+            <div class="ba-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.bhg.com/f92170960e17ebbe4e8db1165a156f40d5c48ff6.jpg" alt="Home Exterior">
+                <div class="ba-labels">
+                    <div class="ba-label before">BEFORE</div>
+                    <div class="ba-label after">AFTER</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive solutions for your home</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-hammer"></i>
+                <h3>Building</h3>
+                <p>From extensions to new builds, we handle all construction projects with precision and care.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Renovation</h3>
+                <p>Complete home renovations including kitchens, bathrooms, and living spaces.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Garden</h3>
+                <p>Beautiful garden landscaping, patios, decking, and outdoor living spaces.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Decor</h3>
+                <p>Interior and exterior painting, plastering, and decorative finishes.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Plumbing</h3>
+                <p>Full plumbing services including installation, repairs, and bathroom fitting.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Electrical</h3>
+                <p>Complete electrical services, rewiring, lighting installation, and safety checks.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Transform Your Home?</h2>
+            <p class="cta-desc">Get a free consultation and quote for your renovation project today. Quality work guaranteed.</p>
+            <a href="tel:0830896669" class="cta-btn">
+                <i class="fas fa-phone"></i> Call Now: 083 089 6669
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">🏠 ELEVATE HOME RENOVATION</div>
+        <div class="footer-contact">
+            <a href="tel:0830896669">
+                <i class="fas fa-phone"></i> 083 089 6669
+            </a>
+            <a href="#">
+                <i class="fas fa-envelope"></i> info@elevaterenovation.ie
+            </a>
+            <a href="#">
+                <i class="fas fa-map-marker-alt"></i> Cork City, Ireland
+            </a>
+        </div>
+        <div class="copyright">
+            © 2026 Elevate Home Renovation. All rights reserved.
+        </div>
+    </footer>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">&times;</div>
+        <img src="" alt="Full size" id="lightbox-img">
+    </div>
+    
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.gallery-item, .ba-card, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
